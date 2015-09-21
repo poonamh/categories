@@ -12,12 +12,15 @@
 #import "Receipt.h"
 #import "ReceiptViewCell.h"
 #import "ReceiptConstants.h"
+#import "ImageViewController.h"
 
 @interface SearchReceiptsTableViewController ()<UISearchResultsUpdating, UISearchBarDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) NSArray *filteredList;
 @property (strong, nonatomic) NSFetchRequest *searchFetchRequest;
 @property (strong, nonatomic) UISearchController *searchController;
+
+@property Receipt *selectedReceipt;
 
 @end
 
@@ -65,6 +68,13 @@
     [cell configureWithReceipt:currentReceipt];
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    self.selectedReceipt = (Receipt *)[self.filteredList objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:ShowImageSegue sender:self];
+}
+
 
 #pragma mark -
 #pragma mark === Search ===
@@ -131,5 +141,17 @@
         }
     }
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString: ShowImageSegue])
+    {
+        UINavigationController *navController = [segue destinationViewController];
+        ImageViewController * vc = (ImageViewController *)navController.topViewController;
+        
+        [vc showImageWithData:self.selectedReceipt.receiptImage];
+    }
+}
+
 
 @end

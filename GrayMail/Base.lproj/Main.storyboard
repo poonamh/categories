@@ -28,16 +28,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nx9-yP-997">
-                                            <rect key="frame" x="33.5" y="153.5" width="101" height="17"/>
+                                            <rect key="frame" x="34" y="154" width="101" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qVN-RT-pHV">
-                                            <rect key="frame" x="44" y="63" width="80" height="80"/>
+                                            <rect key="frame" x="24" y="24" width="120" height="120"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="80" id="Yjw-e2-Roz"/>
-                                                <constraint firstAttribute="width" constant="80" id="qaO-Rj-xnq"/>
+                                                <constraint firstAttribute="height" constant="120" id="Yjw-e2-Roz"/>
+                                                <constraint firstAttribute="width" constant="120" id="qaO-Rj-xnq"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>

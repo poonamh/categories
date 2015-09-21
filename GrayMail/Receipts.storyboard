@@ -347,10 +347,11 @@
                             <outlet property="delegate" destination="nnN-fd-Nha" id="Kfq-ZV-P2P"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="4iK-z7-fFG"/>
+                    <navigationItem key="navigationItem" title="Search" id="4iK-z7-fFG"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="8l4-eX-bHQ" id="m9F-Wr-lyY"/>
                         <segue destination="CWB-5Z-4RO" kind="unwind" identifier="SearchToReceipts" unwindAction="prepareForUnwind:" id="8c7-no-yeT"/>
+                        <segue destination="ShD-vd-v6g" kind="show" identifier="ShowImageSegue" id="lGW-Io-CSM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wf8-AT-i4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -445,4 +446,7 @@
         <image name="photoLibrary" width="192" height="180"/>
         <image name="takePhoto" width="182" height="180"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lGW-Io-CSM"/>
+    </inferredMetricsTieBreakers>
 </document>
