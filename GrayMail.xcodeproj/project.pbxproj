@@ -1,0 +1,546 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A9F5A18D1BAE200400B70973 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A18C1BAE200400B70973 /* main.m */; };
+		A9F5A1901BAE200400B70973 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A18F1BAE200400B70973 /* AppDelegate.m */; };
+		A9F5A1961BAE200400B70973 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F5A1941BAE200400B70973 /* Main.storyboard */; };
+		A9F5A1981BAE200400B70973 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9F5A1971BAE200400B70973 /* Images.xcassets */; };
+		A9F5A19B1BAE200400B70973 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F5A1991BAE200400B70973 /* LaunchScreen.xib */; };
+		A9F5A1A71BAE200400B70973 /* GrayMailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A1A61BAE200400B70973 /* GrayMailTests.m */; };
+		A9F5A1B31BAE207A00B70973 /* CategoriesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A1B21BAE207A00B70973 /* CategoriesCollectionViewController.m */; };
+		A9F5A1B61BAE209800B70973 /* Receipts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F5A1B51BAE209800B70973 /* Receipts.storyboard */; };
+		A9F5A1BE1BAE254F00B70973 /* MailCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A1BD1BAE254F00B70973 /* MailCategory.m */; };
+		A9F5A1C11BAE2BD900B70973 /* CategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A1C01BAE2BD900B70973 /* CategoryCollectionViewCell.m */; };
+		A9F5A1C71BAE33D000B70973 /* Receipt.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A1C61BAE33D000B70973 /* Receipt.m */; };
+		A9F5A1CA1BAE364100B70973 /* ReceiptViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A1C91BAE364100B70973 /* ReceiptViewCell.m */; };
+		A9F5A1D01BAE37DF00B70973 /* ReceiptsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A1CF1BAE37DF00B70973 /* ReceiptsTableViewController.m */; };
+		A9F5A2F21BAE914600B70973 /* GrayMail.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A2F01BAE914600B70973 /* GrayMail.xcdatamodeld */; };
+		A9F5A2F41BAE972E00B70973 /* DefaultData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9F5A2F31BAE972E00B70973 /* DefaultData.plist */; };
+		A9F5A2FE1BAF21E600B70973 /* ReceiptFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A2FD1BAF21E600B70973 /* ReceiptFieldTableViewCell.m */; };
+		A9F5A3001BAF228D00B70973 /* ConfirmReceiptTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A2FF1BAF228D00B70973 /* ConfirmReceiptTableViewController.m */; };
+		A9F5A3031BAF3DA100B70973 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A3021BAF3DA100B70973 /* ImageViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9F5A1A11BAE200400B70973 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9F5A17F1BAE200400B70973 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9F5A1861BAE200400B70973;
+			remoteInfo = GrayMail;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A9F5A1871BAE200400B70973 /* GrayMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrayMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9F5A18B1BAE200400B70973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9F5A18C1BAE200400B70973 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A9F5A18E1BAE200400B70973 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A9F5A18F1BAE200400B70973 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A9F5A1951BAE200400B70973 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A9F5A1971BAE200400B70973 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A9F5A19A1BAE200400B70973 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A9F5A1A01BAE200400B70973 /* GrayMailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrayMailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9F5A1A51BAE200400B70973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9F5A1A61BAE200400B70973 /* GrayMailTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrayMailTests.m; sourceTree = "<group>"; };
+		A9F5A1B11BAE207A00B70973 /* CategoriesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesCollectionViewController.h; sourceTree = "<group>"; };
+		A9F5A1B21BAE207A00B70973 /* CategoriesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesCollectionViewController.m; sourceTree = "<group>"; };
+		A9F5A1B51BAE209800B70973 /* Receipts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Receipts.storyboard; sourceTree = "<group>"; };
+		A9F5A1BC1BAE254F00B70973 /* MailCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailCategory.h; sourceTree = "<group>"; };
+		A9F5A1BD1BAE254F00B70973 /* MailCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailCategory.m; sourceTree = "<group>"; };
+		A9F5A1BF1BAE2BD900B70973 /* CategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCollectionViewCell.h; sourceTree = "<group>"; };
+		A9F5A1C01BAE2BD900B70973 /* CategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCollectionViewCell.m; sourceTree = "<group>"; };
+		A9F5A1C51BAE33D000B70973 /* Receipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receipt.h; sourceTree = "<group>"; };
+		A9F5A1C61BAE33D000B70973 /* Receipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Receipt.m; sourceTree = "<group>"; };
+		A9F5A1C81BAE364100B70973 /* ReceiptViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptViewCell.h; sourceTree = "<group>"; };
+		A9F5A1C91BAE364100B70973 /* ReceiptViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptViewCell.m; sourceTree = "<group>"; };
+		A9F5A1CE1BAE37DF00B70973 /* ReceiptsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptsTableViewController.h; sourceTree = "<group>"; };
+		A9F5A1CF1BAE37DF00B70973 /* ReceiptsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptsTableViewController.m; sourceTree = "<group>"; };
+		A9F5A2F11BAE914600B70973 /* GrayMail.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GrayMail.xcdatamodel; sourceTree = "<group>"; };
+		A9F5A2F31BAE972E00B70973 /* DefaultData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultData.plist; sourceTree = "<group>"; };
+		A9F5A2F61BAEB45500B70973 /* ConfirmReceiptTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmReceiptTableViewController.h; sourceTree = "<group>"; };
+		A9F5A2FC1BAF21E600B70973 /* ReceiptFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptFieldTableViewCell.h; sourceTree = "<group>"; };
+		A9F5A2FD1BAF21E600B70973 /* ReceiptFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptFieldTableViewCell.m; sourceTree = "<group>"; };
+		A9F5A2FF1BAF228D00B70973 /* ConfirmReceiptTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmReceiptTableViewController.m; sourceTree = "<group>"; };
+		A9F5A3011BAF3DA100B70973 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		A9F5A3021BAF3DA100B70973 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9F5A1841BAE200400B70973 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9F5A19D1BAE200400B70973 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9F5A17E1BAE200400B70973 = {
+			isa = PBXGroup;
+			children = (
+				A9F5A1891BAE200400B70973 /* GrayMail */,
+				A9F5A1A31BAE200400B70973 /* GrayMailTests */,
+				A9F5A1881BAE200400B70973 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A9F5A1881BAE200400B70973 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9F5A1871BAE200400B70973 /* GrayMail.app */,
+				A9F5A1A01BAE200400B70973 /* GrayMailTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9F5A1891BAE200400B70973 /* GrayMail */ = {
+			isa = PBXGroup;
+			children = (
+				A9F5A3051BAF6BF500B70973 /* Finances */,
+				A9F5A1971BAE200400B70973 /* Images.xcassets */,
+				A9F5A1991BAE200400B70973 /* LaunchScreen.xib */,
+				A9F5A2F51BAE9B2D00B70973 /* App */,
+				A9F5A1B01BAE205600B70973 /* Categories */,
+				A9F5A1B41BAE208200B70973 /* Receipts */,
+				A9F5A3041BAF5C9100B70973 /* Promotions */,
+				A9F5A18A1BAE200400B70973 /* Supporting Files */,
+			);
+			path = GrayMail;
+			sourceTree = "<group>";
+		};
+		A9F5A18A1BAE200400B70973 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9F5A18B1BAE200400B70973 /* Info.plist */,
+				A9F5A18C1BAE200400B70973 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9F5A1A31BAE200400B70973 /* GrayMailTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9F5A1A61BAE200400B70973 /* GrayMailTests.m */,
+				A9F5A1A41BAE200400B70973 /* Supporting Files */,
+			);
+			path = GrayMailTests;
+			sourceTree = "<group>";
+		};
+		A9F5A1A41BAE200400B70973 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9F5A1A51BAE200400B70973 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9F5A1B01BAE205600B70973 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A9F5A1941BAE200400B70973 /* Main.storyboard */,
+				A9F5A1B11BAE207A00B70973 /* CategoriesCollectionViewController.h */,
+				A9F5A1B21BAE207A00B70973 /* CategoriesCollectionViewController.m */,
+				A9F5A1BC1BAE254F00B70973 /* MailCategory.h */,
+				A9F5A1BD1BAE254F00B70973 /* MailCategory.m */,
+				A9F5A1BF1BAE2BD900B70973 /* CategoryCollectionViewCell.h */,
+				A9F5A1C01BAE2BD900B70973 /* CategoryCollectionViewCell.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		A9F5A1B41BAE208200B70973 /* Receipts */ = {
+			isa = PBXGroup;
+			children = (
+				A9F5A1B51BAE209800B70973 /* Receipts.storyboard */,
+				A9F5A1C51BAE33D000B70973 /* Receipt.h */,
+				A9F5A1C61BAE33D000B70973 /* Receipt.m */,
+				A9F5A1C81BAE364100B70973 /* ReceiptViewCell.h */,
+				A9F5A1C91BAE364100B70973 /* ReceiptViewCell.m */,
+				A9F5A1CE1BAE37DF00B70973 /* ReceiptsTableViewController.h */,
+				A9F5A1CF1BAE37DF00B70973 /* ReceiptsTableViewController.m */,
+				A9F5A2F61BAEB45500B70973 /* ConfirmReceiptTableViewController.h */,
+				A9F5A2FF1BAF228D00B70973 /* ConfirmReceiptTableViewController.m */,
+				A9F5A2FC1BAF21E600B70973 /* ReceiptFieldTableViewCell.h */,
+				A9F5A2FD1BAF21E600B70973 /* ReceiptFieldTableViewCell.m */,
+				A9F5A3011BAF3DA100B70973 /* ImageViewController.h */,
+				A9F5A3021BAF3DA100B70973 /* ImageViewController.m */,
+			);
+			name = Receipts;
+			sourceTree = "<group>";
+		};
+		A9F5A2F51BAE9B2D00B70973 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A9F5A18E1BAE200400B70973 /* AppDelegate.h */,
+				A9F5A18F1BAE200400B70973 /* AppDelegate.m */,
+				A9F5A2F01BAE914600B70973 /* GrayMail.xcdatamodeld */,
+				A9F5A2F31BAE972E00B70973 /* DefaultData.plist */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		A9F5A3041BAF5C9100B70973 /* Promotions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Promotions;
+			sourceTree = "<group>";
+		};
+		A9F5A3051BAF6BF500B70973 /* Finances */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Finances;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9F5A1861BAE200400B70973 /* GrayMail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9F5A1AA1BAE200400B70973 /* Build configuration list for PBXNativeTarget "GrayMail" */;
+			buildPhases = (
+				A9F5A1831BAE200400B70973 /* Sources */,
+				A9F5A1841BAE200400B70973 /* Frameworks */,
+				A9F5A1851BAE200400B70973 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GrayMail;
+			productName = GrayMail;
+			productReference = A9F5A1871BAE200400B70973 /* GrayMail.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9F5A19F1BAE200400B70973 /* GrayMailTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9F5A1AD1BAE200400B70973 /* Build configuration list for PBXNativeTarget "GrayMailTests" */;
+			buildPhases = (
+				A9F5A19C1BAE200400B70973 /* Sources */,
+				A9F5A19D1BAE200400B70973 /* Frameworks */,
+				A9F5A19E1BAE200400B70973 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9F5A1A21BAE200400B70973 /* PBXTargetDependency */,
+			);
+			name = GrayMailTests;
+			productName = GrayMailTests;
+			productReference = A9F5A1A01BAE200400B70973 /* GrayMailTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9F5A17F1BAE200400B70973 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Poonam Hattangady";
+				TargetAttributes = {
+					A9F5A1861BAE200400B70973 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					A9F5A19F1BAE200400B70973 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = A9F5A1861BAE200400B70973;
+					};
+				};
+			};
+			buildConfigurationList = A9F5A1821BAE200400B70973 /* Build configuration list for PBXProject "GrayMail" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9F5A17E1BAE200400B70973;
+			productRefGroup = A9F5A1881BAE200400B70973 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9F5A1861BAE200400B70973 /* GrayMail */,
+				A9F5A19F1BAE200400B70973 /* GrayMailTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9F5A1851BAE200400B70973 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9F5A2F41BAE972E00B70973 /* DefaultData.plist in Resources */,
+				A9F5A1961BAE200400B70973 /* Main.storyboard in Resources */,
+				A9F5A1B61BAE209800B70973 /* Receipts.storyboard in Resources */,
+				A9F5A19B1BAE200400B70973 /* LaunchScreen.xib in Resources */,
+				A9F5A1981BAE200400B70973 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9F5A19E1BAE200400B70973 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9F5A1831BAE200400B70973 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9F5A1C71BAE33D000B70973 /* Receipt.m in Sources */,
+				A9F5A1C11BAE2BD900B70973 /* CategoryCollectionViewCell.m in Sources */,
+				A9F5A2F21BAE914600B70973 /* GrayMail.xcdatamodeld in Sources */,
+				A9F5A3001BAF228D00B70973 /* ConfirmReceiptTableViewController.m in Sources */,
+				A9F5A1901BAE200400B70973 /* AppDelegate.m in Sources */,
+				A9F5A18D1BAE200400B70973 /* main.m in Sources */,
+				A9F5A3031BAF3DA100B70973 /* ImageViewController.m in Sources */,
+				A9F5A2FE1BAF21E600B70973 /* ReceiptFieldTableViewCell.m in Sources */,
+				A9F5A1BE1BAE254F00B70973 /* MailCategory.m in Sources */,
+				A9F5A1CA1BAE364100B70973 /* ReceiptViewCell.m in Sources */,
+				A9F5A1D01BAE37DF00B70973 /* ReceiptsTableViewController.m in Sources */,
+				A9F5A1B31BAE207A00B70973 /* CategoriesCollectionViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9F5A19C1BAE200400B70973 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9F5A1A71BAE200400B70973 /* GrayMailTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9F5A1A21BAE200400B70973 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9F5A1861BAE200400B70973 /* GrayMail */;
+			targetProxy = A9F5A1A11BAE200400B70973 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A9F5A1941BAE200400B70973 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9F5A1951BAE200400B70973 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A9F5A1991BAE200400B70973 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9F5A19A1BAE200400B70973 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9F5A1A81BAE200400B70973 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9F5A1A91BAE200400B70973 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9F5A1AB1BAE200400B70973 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GrayMail/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A9F5A1AC1BAE200400B70973 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GrayMail/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A9F5A1AE1BAE200400B70973 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GrayMailTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GrayMail.app/GrayMail";
+			};
+			name = Debug;
+		};
+		A9F5A1AF1BAE200400B70973 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GrayMailTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GrayMail.app/GrayMail";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9F5A1821BAE200400B70973 /* Build configuration list for PBXProject "GrayMail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9F5A1A81BAE200400B70973 /* Debug */,
+				A9F5A1A91BAE200400B70973 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9F5A1AA1BAE200400B70973 /* Build configuration list for PBXNativeTarget "GrayMail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9F5A1AB1BAE200400B70973 /* Debug */,
+				A9F5A1AC1BAE200400B70973 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A9F5A1AD1BAE200400B70973 /* Build configuration list for PBXNativeTarget "GrayMailTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9F5A1AE1BAE200400B70973 /* Debug */,
+				A9F5A1AF1BAE200400B70973 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A9F5A2F01BAE914600B70973 /* GrayMail.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A9F5A2F11BAE914600B70973 /* GrayMail.xcdatamodel */,
+			);
+			currentVersion = A9F5A2F11BAE914600B70973 /* GrayMail.xcdatamodel */;
+			path = GrayMail.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A9F5A17F1BAE200400B70973 /* Project object */;
+}

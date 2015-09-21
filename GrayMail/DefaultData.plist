@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Receipt</key>
+	<array>
+		<dict>
+			<key>storeName</key>
+			<string>Express</string>
+			<key>purchaseDate</key>
+			<date>2015-09-20T07:28:21Z</date>
+			<key>purchaseAmount</key>
+			<real>55.5</real>
+			<key>keywords</key>
+			<string>jeans</string>
+			<key>dateCreated</key>
+			<date>2015-09-20T07:29:06Z</date>
+		</dict>
+		<dict>
+			<key>storeName</key>
+			<string>Madewell</string>
+			<key>purchaseDate</key>
+			<date>2015-09-19T07:28:21Z</date>
+			<key>purchaseAmount</key>
+			<integer>100</integer>
+			<key>keywords</key>
+			<string>cardigan</string>
+			<key>dateCreated</key>
+			<date>2015-09-20T07:29:06Z</date>
+		</dict>
+		<dict>
+			<key>storeName</key>
+			<string>Amazon</string>
+			<key>purchaseDate</key>
+			<date>2015-09-15T07:28:21Z</date>
+			<key>purchaseAmount</key>
+			<real>77.5</real>
+			<key>keywords</key>
+			<string>slinky</string>
+			<key>dateCreated</key>
+			<date>2015-09-20T07:29:06Z</date>
+		</dict>
+		<dict>
+			<key>storeName</key>
+			<string>Monoprice</string>
+			<key>purchaseDate</key>
+			<date>2015-09-12T07:28:21Z</date>
+			<key>purchaseAmount</key>
+			<real>15.5</real>
+			<key>keywords</key>
+			<string>cables</string>
+			<key>dateCreated</key>
+			<date>2015-09-20T07:29:06Z</date>
+		</dict>
+		<dict>
+			<key>storeName</key>
+			<string>Costco</string>
+			<key>purchaseDate</key>
+			<date>2015-09-10T07:28:21Z</date>
+			<key>purchaseAmount</key>
+			<real>150.45</real>
+			<key>keywords</key>
+			<string>groceries</string>
+			<key>dateCreated</key>
+			<date>2015-09-20T07:29:06Z</date>
+		</dict>
+		<dict>
+			<key>storeName</key>
+			<string>Trader Joes</string>
+			<key>purchaseDate</key>
+			<date>2015-09-08T07:28:21Z</date>
+			<key>purchaseAmount</key>
+			<real>7.5</real>
+			<key>keywords</key>
+			<string>bread, milk, humus</string>
+			<key>dateCreated</key>
+			<date>2015-09-20T07:29:06Z</date>
+		</dict>
+	</array>
+</dict>
+</plist>
