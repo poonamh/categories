@@ -25,6 +25,8 @@
 		A9F5A2FE1BAF21E600B70973 /* ReceiptFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A2FD1BAF21E600B70973 /* ReceiptFieldTableViewCell.m */; };
 		A9F5A3001BAF228D00B70973 /* ConfirmReceiptTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A2FF1BAF228D00B70973 /* ConfirmReceiptTableViewController.m */; };
 		A9F5A3031BAF3DA100B70973 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F5A3021BAF3DA100B70973 /* ImageViewController.m */; };
+		A9FEBFC91BAFA155001088A0 /* ReceiptCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FEBFC81BAFA155001088A0 /* ReceiptCell.xib */; };
+		A9FEBFCD1BAFA5F3001088A0 /* SearchReceiptsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FEBFCC1BAFA5F3001088A0 /* SearchReceiptsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,9 @@
 		A9F5A2FF1BAF228D00B70973 /* ConfirmReceiptTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmReceiptTableViewController.m; sourceTree = "<group>"; };
 		A9F5A3011BAF3DA100B70973 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		A9F5A3021BAF3DA100B70973 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		A9FEBFC81BAFA155001088A0 /* ReceiptCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceiptCell.xib; sourceTree = "<group>"; };
+		A9FEBFCB1BAFA5F3001088A0 /* SearchReceiptsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchReceiptsTableViewController.h; sourceTree = "<group>"; };
+		A9FEBFCC1BAFA5F3001088A0 /* SearchReceiptsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchReceiptsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +116,7 @@
 		A9F5A1891BAE200400B70973 /* GrayMail */ = {
 			isa = PBXGroup;
 			children = (
+				A9FEBFCA1BAFA4CA001088A0 /* Models */,
 				A9F5A3051BAF6BF500B70973 /* Finances */,
 				A9F5A1971BAE200400B70973 /* Images.xcassets */,
 				A9F5A1991BAE200400B70973 /* LaunchScreen.xib */,
@@ -167,8 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				A9F5A1B51BAE209800B70973 /* Receipts.storyboard */,
-				A9F5A1C51BAE33D000B70973 /* Receipt.h */,
-				A9F5A1C61BAE33D000B70973 /* Receipt.m */,
 				A9F5A1C81BAE364100B70973 /* ReceiptViewCell.h */,
 				A9F5A1C91BAE364100B70973 /* ReceiptViewCell.m */,
 				A9F5A1CE1BAE37DF00B70973 /* ReceiptsTableViewController.h */,
@@ -179,6 +183,9 @@
 				A9F5A2FD1BAF21E600B70973 /* ReceiptFieldTableViewCell.m */,
 				A9F5A3011BAF3DA100B70973 /* ImageViewController.h */,
 				A9F5A3021BAF3DA100B70973 /* ImageViewController.m */,
+				A9FEBFC81BAFA155001088A0 /* ReceiptCell.xib */,
+				A9FEBFCB1BAFA5F3001088A0 /* SearchReceiptsTableViewController.h */,
+				A9FEBFCC1BAFA5F3001088A0 /* SearchReceiptsTableViewController.m */,
 			);
 			name = Receipts;
 			sourceTree = "<group>";
@@ -206,6 +213,15 @@
 			children = (
 			);
 			name = Finances;
+			sourceTree = "<group>";
+		};
+		A9FEBFCA1BAFA4CA001088A0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A9F5A1C51BAE33D000B70973 /* Receipt.h */,
+				A9F5A1C61BAE33D000B70973 /* Receipt.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +308,7 @@
 				A9F5A1961BAE200400B70973 /* Main.storyboard in Resources */,
 				A9F5A1B61BAE209800B70973 /* Receipts.storyboard in Resources */,
 				A9F5A19B1BAE200400B70973 /* LaunchScreen.xib in Resources */,
+				A9FEBFC91BAFA155001088A0 /* ReceiptCell.xib in Resources */,
 				A9F5A1981BAE200400B70973 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +330,7 @@
 				A9F5A1C71BAE33D000B70973 /* Receipt.m in Sources */,
 				A9F5A1C11BAE2BD900B70973 /* CategoryCollectionViewCell.m in Sources */,
 				A9F5A2F21BAE914600B70973 /* GrayMail.xcdatamodeld in Sources */,
+				A9FEBFCD1BAFA5F3001088A0 /* SearchReceiptsTableViewController.m in Sources */,
 				A9F5A3001BAF228D00B70973 /* ConfirmReceiptTableViewController.m in Sources */,
 				A9F5A1901BAE200400B70973 /* AppDelegate.m in Sources */,
 				A9F5A18D1BAE200400B70973 /* main.m in Sources */,
@@ -518,6 +536,7 @@
 				A9F5A1AC1BAE200400B70973 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9F5A1AD1BAE200400B70973 /* Build configuration list for PBXNativeTarget "GrayMailTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +545,7 @@
 				A9F5A1AF1BAE200400B70973 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

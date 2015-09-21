@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReceiptCell" rowHeight="74" id="BJx-3F-Kvr" customClass="ReceiptViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="74"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BJx-3F-Kvr" id="cbL-DR-zAQ">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qS3-Zr-iue">
+                        <rect key="frame" x="8" y="42" width="60" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fda-4d-qcW">
+                        <rect key="frame" x="548.5" y="8" width="43.5" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day of Week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUB-AY-OvR">
+                        <rect key="frame" x="495" y="42" width="96.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMN-XE-WQ3">
+                        <rect key="frame" x="8" y="8" width="109" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qS3-Zr-iue" firstAttribute="leading" secondItem="cbL-DR-zAQ" secondAttribute="leadingMargin" id="86u-Ib-Is4"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="fda-4d-qcW" secondAttribute="trailing" id="8AE-zh-5up"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="gUB-AY-OvR" secondAttribute="trailing" id="DZb-vn-Nzo"/>
+                    <constraint firstItem="fda-4d-qcW" firstAttribute="height" secondItem="FMN-XE-WQ3" secondAttribute="height" id="Lin-ni-yYf"/>
+                    <constraint firstItem="fda-4d-qcW" firstAttribute="centerY" secondItem="FMN-XE-WQ3" secondAttribute="centerY" id="OQg-sc-sbS"/>
+                    <constraint firstItem="FMN-XE-WQ3" firstAttribute="top" secondItem="cbL-DR-zAQ" secondAttribute="topMargin" id="R9k-y5-j6a"/>
+                    <constraint firstItem="FMN-XE-WQ3" firstAttribute="leading" secondItem="cbL-DR-zAQ" secondAttribute="leadingMargin" id="rpB-cP-hG0"/>
+                    <constraint firstItem="qS3-Zr-iue" firstAttribute="centerY" secondItem="gUB-AY-OvR" secondAttribute="centerY" id="suL-Sm-V6Y"/>
+                    <constraint firstItem="qS3-Zr-iue" firstAttribute="top" secondItem="FMN-XE-WQ3" secondAttribute="bottom" constant="10" id="svG-zo-DFi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="amountLabel" destination="qS3-Zr-iue" id="Omu-72-hkX"/>
+                <outlet property="dateLabel" destination="fda-4d-qcW" id="i6S-xq-eF6"/>
+                <outlet property="dayOfWeekLabel" destination="gUB-AY-OvR" id="pFX-xG-mPb"/>
+                <outlet property="storeNameLabel" destination="FMN-XE-WQ3" id="G3z-ir-HQ8"/>
+            </connections>
+            <point key="canvasLocation" x="369" y="128"/>
+        </tableViewCell>
+    </objects>
+</document>

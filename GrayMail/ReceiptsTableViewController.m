@@ -11,6 +11,7 @@
 #import "ReceiptViewCell.h"
 #import "ConfirmReceiptTableViewController.h"
 #import "ImageViewController.h"
+#import "SearchReceiptsTableViewController.h"
 
 @interface ReceiptsTableViewController ()
 
@@ -28,9 +29,6 @@
 @property BOOL sortOrderChanged;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSArray *filteredList;
-@property (strong, nonatomic) NSFetchRequest *searchFetchRequest;
-@property (strong, nonatomic) UISearchController *searchController;
 
 @end
 
@@ -40,15 +38,7 @@
 {
     [super viewDidLoad];
     
-    // No search results controller to display the search results in the current view
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    self.searchController.searchResultsUpdater = self;
-    self.searchController.dimsBackgroundDuringPresentation = NO;
-    self.searchController.searchBar.delegate = self;
-    self.definesPresentationContext = YES;
-    
-    self.tableView.tableHeaderView = self.searchController.searchBar;
-    [self.searchController.searchBar sizeToFit];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ReceiptCell" bundle:nil] forCellReuseIdentifier:@"ReceiptCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated;
@@ -61,12 +51,6 @@
     self.receiptsHeaderLabel.backgroundColor = self.category.primaryColor;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    self.searchFetchRequest = nil;
-}
-
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
 }
 
@@ -75,26 +59,12 @@
 #pragma mark -
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (self.searchController.active)
-    {
-        return 1;
-    }
-    else
-    {
-        return [[self.fetchedResultsController sections] count];
-    }
+    return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.searchController.active)
-    {
-        return [self.filteredList count];
-    }
-    else
-    {
-        id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-        return [sectionInfo numberOfObjects];
-    }
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -131,42 +101,11 @@
 }
 
 - (void)configureCell:(ReceiptViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    Receipt *currentReceipt = nil;
-    if (self.searchController.active)
-    {
-        currentReceipt = [self.filteredList objectAtIndex:indexPath.row];
-    }
-    else
-    {
-        currentReceipt = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    }
-    
+    Receipt *currentReceipt = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell configureWithReceipt:currentReceipt];
 }
 
 
-
-#pragma mark -
-#pragma mark === Search ===
-#pragma mark -
-
-- (NSFetchRequest *)searchFetchRequest
-{
-    if (_searchFetchRequest != nil)
-    {
-        return _searchFetchRequest;
-    }
-    
-    _searchFetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Receipt" inManagedObjectContext:self.managedObjectContext];
-    [_searchFetchRequest setEntity:entity];
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"purchaseDate" ascending:NO];
-    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-    [_searchFetchRequest setSortDescriptors:sortDescriptors];
-    
-    return _searchFetchRequest;
-}
 
 #pragma mark -
 #pragma mark === Fetched results controller ===
@@ -351,46 +290,14 @@
         ImageViewController * vc = (ImageViewController *)navController.topViewController;
         [vc showImageWithData:self.selectedReceipt.receiptImage];
     }
-}
-
-#pragma mark -
-#pragma mark === UISearchBarDelegate ===
-#pragma mark -
-
-- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
-{
-    [self updateSearchResultsForSearchController:self.searchController];
-}
-
-#pragma mark -
-#pragma mark === UISearchResultsUpdating ===
-#pragma mark -
-
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
-{
-    NSString *searchString = searchController.searchBar.text;
-    [self searchForText:searchString];
-    [self.tableView reloadData];
-}
-
-- (void)searchForText:(NSString *)searchText
-{
-    if (self.managedObjectContext)
+    else if ([[segue identifier] isEqualToString:@"SearchReceiptsSegue"])
     {
-        NSString *predicateFormat = @"%K BEGINSWITH[cd] %@";
-        NSString *searchAttribute = @"storeName";
-        
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateFormat, searchAttribute, searchText];
-        [self.searchFetchRequest setPredicate:predicate];
-        
-        NSError *error = nil;
-        self.filteredList = [self.managedObjectContext executeFetchRequest:self.searchFetchRequest error:&error];
-        if (error)
-        {
-            NSLog(@"searchFetchRequest failed: %@",[error localizedDescription]);
-        }
+        UINavigationController *navController = [segue destinationViewController];
+        SearchReceiptsTableViewController *vc = (SearchReceiptsTableViewController *)navController.topViewController;
+        vc.managedObjectContext = [self.fetchedResultsController managedObjectContext];
     }
 }
+
 
 #pragma mark - Sort order
 - (IBAction)sortOrderTapped:(id)sender {
