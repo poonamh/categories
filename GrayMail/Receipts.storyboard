@@ -12,13 +12,20 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="22" sectionFooterHeight="22" id="T6m-a9-PUk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vOS-KY-cwo">
-                            <rect key="frame" x="0.0" y="64" width="600" height="180"/>
+                            <rect key="frame" x="0.0" y="64" width="600" height="226"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
+                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cYy-kj-cTl">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="Qqt-kE-Emy" id="9Zf-yv-NYh"/>
+                                    </connections>
+                                </searchBar>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Digitize your receipt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cic-AH-CCY">
-                                    <rect key="frame" x="-8" y="0.0" width="616" height="40"/>
+                                    <rect key="frame" x="-8" y="44" width="616" height="40"/>
                                     <color key="backgroundColor" red="0.70196078429999997" green="0.74901960779999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="vP3-1N-tOg"/>
@@ -28,7 +35,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddy-r4-sxe" userLabel="FromFile">
-                                    <rect key="frame" x="0.0" y="40" width="100" height="100"/>
+                                    <rect key="frame" x="0.0" y="84" width="100" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="Ber-CQ-hWl"/>
                                         <constraint firstAttribute="width" constant="100" id="fS3-Xp-s5R"/>
@@ -41,7 +48,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PJ-T6-Ctn" userLabel="FromLibrary">
-                                    <rect key="frame" x="250" y="40" width="100" height="100"/>
+                                    <rect key="frame" x="250" y="84" width="100" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="hf6-no-y8g"/>
                                         <constraint firstAttribute="height" constant="100" id="y1N-Dm-d33"/>
@@ -54,7 +61,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNr-tG-Jxe" userLabel="TakePhoto">
-                                    <rect key="frame" x="500" y="40" width="100" height="100"/>
+                                    <rect key="frame" x="500" y="84" width="100" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="1gd-Op-D0L"/>
                                         <constraint firstAttribute="height" constant="100" id="L6w-0F-iFu"/>
@@ -67,7 +74,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phP-77-I2H">
-                                    <rect key="frame" x="-16" y="140" width="632" height="40"/>
+                                    <rect key="frame" x="-16" y="184" width="632" height="40"/>
                                     <color key="backgroundColor" red="0.76470588240000004" green="0.81568627449999997" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="DA9-9r-sxv"/>
@@ -83,7 +90,7 @@
                                     </variation>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchases" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pP8-rZ-vVu">
-                                    <rect key="frame" x="8" y="140" width="80.5" height="40"/>
+                                    <rect key="frame" x="8" y="184" width="80.5" height="40"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="8D1-cM-XIZ"/>
@@ -99,7 +106,7 @@
                                     </variation>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNs-GO-7Sd">
-                                    <rect key="frame" x="514" y="145" width="70" height="30"/>
+                                    <rect key="frame" x="514" y="189" width="70" height="30"/>
                                     <state key="normal" title="Date desc">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -110,16 +117,14 @@
                             </subviews>
                             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="trailingMargin" secondItem="pP8-rZ-vVu" secondAttribute="trailing" id="5GU-ZO-4cl"/>
-                                <constraint firstItem="lNs-GO-7Sd" firstAttribute="leading" secondItem="phP-77-I2H" secondAttribute="trailing" constant="-54" id="B5L-i3-89F"/>
+                                <constraint firstAttribute="trailing" secondItem="cYy-kj-cTl" secondAttribute="trailing" id="6Rw-mO-L4t"/>
                                 <constraint firstItem="phP-77-I2H" firstAttribute="top" secondItem="ddy-r4-sxe" secondAttribute="bottom" id="Eq7-4V-XwS"/>
-                                <constraint firstItem="cic-AH-CCY" firstAttribute="top" secondItem="vOS-KY-cwo" secondAttribute="top" id="I7e-Po-lIF"/>
                                 <constraint firstItem="3PJ-T6-Ctn" firstAttribute="centerY" secondItem="ddy-r4-sxe" secondAttribute="centerY" id="JOX-Rj-P8x"/>
                                 <constraint firstItem="phP-77-I2H" firstAttribute="leading" secondItem="vOS-KY-cwo" secondAttribute="leading" constant="-16" id="Jct-VF-Wz3"/>
-                                <constraint firstItem="cic-AH-CCY" firstAttribute="top" secondItem="vOS-KY-cwo" secondAttribute="top" id="Rzr-Pa-jHm"/>
                                 <constraint firstAttribute="centerX" secondItem="3PJ-T6-Ctn" secondAttribute="centerX" id="VJW-Zh-hAa"/>
                                 <constraint firstItem="pP8-rZ-vVu" firstAttribute="top" secondItem="ddy-r4-sxe" secondAttribute="bottom" id="VM9-yp-wDt"/>
                                 <constraint firstAttribute="trailing" secondItem="phP-77-I2H" secondAttribute="trailing" constant="-16" id="XrQ-KX-jfQ"/>
+                                <constraint firstItem="cYy-kj-cTl" firstAttribute="top" secondItem="vOS-KY-cwo" secondAttribute="top" id="YPJ-Ge-cOY"/>
                                 <constraint firstAttribute="trailing" secondItem="lNs-GO-7Sd" secondAttribute="trailing" constant="16" id="ZKk-IZ-6hp"/>
                                 <constraint firstItem="cic-AH-CCY" firstAttribute="leading" secondItem="vOS-KY-cwo" secondAttribute="leadingMargin" constant="-16" id="Zzd-Vl-Xy0"/>
                                 <constraint firstItem="3PJ-T6-Ctn" firstAttribute="height" secondItem="ddy-r4-sxe" secondAttribute="height" id="clz-D6-L4D"/>
@@ -132,15 +137,10 @@
                                 <constraint firstItem="3PJ-T6-Ctn" firstAttribute="width" secondItem="ddy-r4-sxe" secondAttribute="width" id="lVM-Y5-UCb"/>
                                 <constraint firstItem="pP8-rZ-vVu" firstAttribute="centerY" secondItem="lNs-GO-7Sd" secondAttribute="centerY" id="la0-AI-s9p"/>
                                 <constraint firstAttribute="trailing" secondItem="BNr-tG-Jxe" secondAttribute="trailing" id="ocZ-9V-hEF"/>
+                                <constraint firstItem="cYy-kj-cTl" firstAttribute="leading" secondItem="vOS-KY-cwo" secondAttribute="leading" id="qzy-Td-nQL"/>
+                                <constraint firstItem="cic-AH-CCY" firstAttribute="top" secondItem="cYy-kj-cTl" secondAttribute="bottom" id="ufQ-0Q-HFK"/>
                                 <constraint firstItem="pP8-rZ-vVu" firstAttribute="leading" secondItem="vOS-KY-cwo" secondAttribute="leadingMargin" id="v2z-et-msW"/>
                             </constraints>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="Rzr-Pa-jHm"/>
-                                    <exclude reference="5GU-ZO-4cl"/>
-                                    <exclude reference="B5L-i3-89F"/>
-                                </mask>
-                            </variation>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReceiptCell" rowHeight="74" id="Pf9-Z8-4g1" customClass="ReceiptViewCell">
@@ -199,30 +199,28 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Receipts" id="0Kz-Tx-gnk">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="RGE-uY-d6P">
-                            <connections>
-                                <segue destination="Q21-Rd-I9M" kind="show" id="LZq-PA-O8N"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="RGE-uY-d6P"/>
                     </navigationItem>
                     <connections>
                         <outlet property="digitizeLabel" destination="cic-AH-CCY" id="Bdc-DP-PP6"/>
                         <outlet property="fromFileButton" destination="ddy-r4-sxe" id="tKH-c4-WgG"/>
                         <outlet property="fromLibraryButton" destination="3PJ-T6-Ctn" id="Sep-U3-UKO"/>
+                        <outlet property="headerContainerView" destination="vOS-KY-cwo" id="DlY-DA-A25"/>
                         <outlet property="receiptsHeaderLabel" destination="phP-77-I2H" id="ZFo-1x-rqX"/>
-                        <outlet property="searchDisplayController" destination="9HF-Gf-gzs" id="y3K-WV-wMZ"/>
+                        <outlet property="searchDisplayController" destination="Kxm-Pc-TB7" id="I46-fd-UZb"/>
                         <outlet property="sortOrderButton" destination="lNs-GO-7Sd" id="CRZ-vg-0dQ"/>
                         <segue destination="0ud-Xr-UeS" kind="show" identifier="ConfirmReceiptSegue" id="H9J-Hp-DyJ"/>
                         <segue destination="ShD-vd-v6g" kind="show" identifier="ShowImageSegue" id="ENP-do-vgd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mdg-H6-TTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="9HF-Gf-gzs">
+                <searchDisplayController id="Kxm-Pc-TB7">
                     <connections>
-                        <outlet property="delegate" destination="Qqt-kE-Emy" id="nE8-8t-0Sy"/>
-                        <outlet property="searchContentsController" destination="Qqt-kE-Emy" id="NvZ-cE-2PW"/>
-                        <outlet property="searchResultsDataSource" destination="Qqt-kE-Emy" id="I4o-A0-c8z"/>
-                        <outlet property="searchResultsDelegate" destination="Qqt-kE-Emy" id="pwE-aG-YWs"/>
+                        <outlet property="delegate" destination="Qqt-kE-Emy" id="ItH-av-DNq"/>
+                        <outlet property="searchBar" destination="cYy-kj-cTl" id="4oI-XX-vgg"/>
+                        <outlet property="searchContentsController" destination="Qqt-kE-Emy" id="Dl6-NP-CuI"/>
+                        <outlet property="searchResultsDataSource" destination="Qqt-kE-Emy" id="p7m-cC-GDc"/>
+                        <outlet property="searchResultsDelegate" destination="Qqt-kE-Emy" id="4ck-gx-dH5"/>
                     </connections>
                 </searchDisplayController>
             </objects>
@@ -447,71 +445,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvh-xo-W3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2693" y="1173"/>
-        </scene>
-        <!--Search-->
-        <scene sceneID="l5f-Jl-w15">
-            <objects>
-                <tableViewController id="H4A-2O-e5H" userLabel="Search" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jPr-hW-a6R">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="win-9J-Oqx">
-                            <rect key="frame" x="-8" y="-1" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="H4A-2O-e5H" id="hzc-QQ-cs4"/>
-                            </connections>
-                        </searchBar>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="g2H-4e-5sf">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g2H-4e-5sf" id="ckd-Ug-oz1">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="H4A-2O-e5H" id="7sf-hI-XcA"/>
-                            <outlet property="delegate" destination="H4A-2O-e5H" id="pp1-gH-BCd"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="e1t-s4-41T"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="3wM-fE-xeh" id="j2o-Kg-suz"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Anm-KJ-Q1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="3wM-fE-xeh">
-                    <connections>
-                        <outlet property="delegate" destination="H4A-2O-e5H" id="JJ6-Db-p95"/>
-                        <outlet property="searchBar" destination="win-9J-Oqx" id="BnW-KS-hUc"/>
-                        <outlet property="searchContentsController" destination="H4A-2O-e5H" id="Lqn-8b-yVe"/>
-                        <outlet property="searchResultsDataSource" destination="H4A-2O-e5H" id="RNL-HR-CTF"/>
-                        <outlet property="searchResultsDelegate" destination="H4A-2O-e5H" id="uKm-Zt-E22"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="3505" y="1888"/>
-        </scene>
-        <!--NavController for Search-->
-        <scene sceneID="ufY-my-mFp">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Q21-Rd-I9M" userLabel="NavController for Search" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mgI-OO-Vq8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="H4A-2O-e5H" kind="relationship" relationship="rootViewController" id="BgM-Au-oOk"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3cl-Pr-tSZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2693" y="1888"/>
         </scene>
     </scenes>
     <resources>

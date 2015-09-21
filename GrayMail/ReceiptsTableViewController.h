@@ -11,9 +11,8 @@
 #import "MailCategory.h"
 
 
-@interface ReceiptsTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ReceiptsTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property MailCategory *category;
 

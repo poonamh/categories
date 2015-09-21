@@ -20,10 +20,17 @@
 @property (weak, nonatomic) IBOutlet UIButton *sortOrderButton;
 @property (weak, nonatomic) IBOutlet UILabel *digitizeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *receiptsHeaderLabel;
+@property (weak, nonatomic) IBOutlet UIView *headerContainerView;
+
 @property Receipt *receiptToConfirm;
 @property Receipt *selectedReceipt;
 @property BOOL ascendingSort;
 @property BOOL sortOrderChanged;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSArray *filteredList;
+@property (strong, nonatomic) NSFetchRequest *searchFetchRequest;
+@property (strong, nonatomic) UISearchController *searchController;
 
 @end
 
@@ -33,38 +40,61 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    // No search results controller to display the search results in the current view
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.searchBar.delegate = self;
+    self.definesPresentationContext = YES;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
-    [self updateSortOrderLabel];
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    [self.searchController.searchBar sizeToFit];
 }
 
 - (void)viewWillAppear:(BOOL)animated;
 {
     [super viewWillAppear:animated];
+    [self updateSortOrderLabel];
     
     self.navigationController.navigationBarHidden = NO;
     self.digitizeLabel.backgroundColor = self.category.primaryColor;
     self.receiptsHeaderLabel.backgroundColor = self.category.primaryColor;
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    self.searchFetchRequest = nil;
+}
+
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
 }
 
-#pragma mark - Table view data source
+#pragma mark -
+#pragma mark === Table view data source ===
+#pragma mark -
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return [[self.fetchedResultsController sections] count];
+    if (self.searchController.active)
+    {
+        return 1;
+    }
+    else
+    {
+        return [[self.fetchedResultsController sections] count];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    return [sectionInfo numberOfObjects];
+    if (self.searchController.active)
+    {
+        return [self.filteredList count];
+    }
+    else
+    {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+        return [sectionInfo numberOfObjects];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -101,27 +131,46 @@
 }
 
 - (void)configureCell:(ReceiptViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    Receipt *currentReceipt = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Receipt *currentReceipt = nil;
+    if (self.searchController.active)
+    {
+        currentReceipt = [self.filteredList objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        currentReceipt = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    }
+    
     [cell configureWithReceipt:currentReceipt];
 }
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+
+
+#pragma mark -
+#pragma mark === Search ===
+#pragma mark -
+
+- (NSFetchRequest *)searchFetchRequest
+{
+    if (_searchFetchRequest != nil)
+    {
+        return _searchFetchRequest;
+    }
+    
+    _searchFetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Receipt" inManagedObjectContext:self.managedObjectContext];
+    [_searchFetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"purchaseDate" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    [_searchFetchRequest setSortDescriptors:sortDescriptors];
+    
+    return _searchFetchRequest;
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-
-#pragma mark - Fetched results controller
+#pragma mark -
+#pragma mark === Fetched results controller ===
+#pragma mark -
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
@@ -133,31 +182,25 @@
     NSString *cacheName = self.ascendingSort ? @"MasterAsc" : @"MasterDesc";
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // Edit the entity name as appropriate.
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Receipt" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
-    // Edit the sort key as appropriate.
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"purchaseDate" ascending:self.ascendingSort];
     NSArray *sortDescriptors = @[sortDescriptor];
-    
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:cacheName];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                                                managedObjectContext:self.managedObjectContext
+                                                                                                  sectionNameKeyPath:nil cacheName:cacheName];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
     NSError *error = nil;
-    if (![self.fetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+    if (![self.fetchedResultsController performFetch:&error])
+    {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
     }
     
     return _fetchedResultsController;
@@ -226,15 +269,6 @@
  }
  */
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - Digitize your receipt
 
@@ -316,6 +350,45 @@
         UINavigationController *navController = [segue destinationViewController];
         ImageViewController * vc = (ImageViewController *)navController.topViewController;
         [vc showImageWithData:self.selectedReceipt.receiptImage];
+    }
+}
+
+#pragma mark -
+#pragma mark === UISearchBarDelegate ===
+#pragma mark -
+
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
+{
+    [self updateSearchResultsForSearchController:self.searchController];
+}
+
+#pragma mark -
+#pragma mark === UISearchResultsUpdating ===
+#pragma mark -
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
+{
+    NSString *searchString = searchController.searchBar.text;
+    [self searchForText:searchString];
+    [self.tableView reloadData];
+}
+
+- (void)searchForText:(NSString *)searchText
+{
+    if (self.managedObjectContext)
+    {
+        NSString *predicateFormat = @"%K BEGINSWITH[cd] %@";
+        NSString *searchAttribute = @"storeName";
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateFormat, searchAttribute, searchText];
+        [self.searchFetchRequest setPredicate:predicate];
+        
+        NSError *error = nil;
+        self.filteredList = [self.managedObjectContext executeFetchRequest:self.searchFetchRequest error:&error];
+        if (error)
+        {
+            NSLog(@"searchFetchRequest failed: %@",[error localizedDescription]);
+        }
     }
 }
 
