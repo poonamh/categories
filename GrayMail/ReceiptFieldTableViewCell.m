@@ -22,7 +22,8 @@
 
 @implementation ReceiptFieldTableViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     // Initialization code
 }
 

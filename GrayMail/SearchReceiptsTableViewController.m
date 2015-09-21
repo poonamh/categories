@@ -11,6 +11,7 @@
 #import "SearchReceiptsTableViewController.h"
 #import "Receipt.h"
 #import "ReceiptViewCell.h"
+#import "ReceiptConstants.h"
 
 @interface SearchReceiptsTableViewController ()<UISearchResultsUpdating, UISearchBarDelegate, UIImagePickerControllerDelegate>
 
@@ -20,7 +21,7 @@
 
 @end
 
-static NSString *ReceiptCellIdentifier = @"ReceiptCell";
+// static NSString *ReceiptCellIdentifier = @"ReceiptCell";
 
 @implementation SearchReceiptsTableViewController
 
@@ -77,10 +78,10 @@ static NSString *ReceiptCellIdentifier = @"ReceiptCell";
     }
     
     _searchFetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Receipt" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:ReceiptModelName inManagedObjectContext:self.managedObjectContext];
     [_searchFetchRequest setEntity:entity];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"purchaseDate" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:SortPropertyName ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
     [_searchFetchRequest setSortDescriptors:sortDescriptors];
     
@@ -116,8 +117,8 @@ static NSString *ReceiptCellIdentifier = @"ReceiptCell";
 {
     if (self.managedObjectContext)
     {
-        NSString *predicateFormat = @"%K BEGINSWITH[cd] %@";
-        NSString *searchAttribute = @"storeName";
+        NSString *predicateFormat = @"%K CONTAINS[cd] %@";
+        NSString *searchAttribute = DefaultSearchPropertyName;
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateFormat, searchAttribute, searchText];
         [self.searchFetchRequest setPredicate:predicate];
@@ -130,15 +131,5 @@ static NSString *ReceiptCellIdentifier = @"ReceiptCell";
         }
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

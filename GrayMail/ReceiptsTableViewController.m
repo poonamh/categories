@@ -12,8 +12,9 @@
 #import "ConfirmReceiptTableViewController.h"
 #import "ImageViewController.h"
 #import "SearchReceiptsTableViewController.h"
+#import "ReceiptConstants.h"
 
-@interface ReceiptsTableViewController ()
+@interface ReceiptsTableViewController () <NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *fromFileButton;
 @property (weak, nonatomic) IBOutlet UIButton *fromLibraryButton;
@@ -38,7 +39,7 @@
 {
     [super viewDidLoad];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"ReceiptCell" bundle:nil] forCellReuseIdentifier:@"ReceiptCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:ReceiptCellIdentifier bundle:nil] forCellReuseIdentifier:ReceiptCellIdentifier];
 }
 
 - (void)viewWillAppear:(BOOL)animated;
@@ -68,7 +69,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ReceiptViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReceiptCell" forIndexPath:indexPath];
+    ReceiptViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReceiptCellIdentifier forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -85,11 +86,9 @@
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
         
         NSError *error = nil;
-        if (![context save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        if (![context save:&error])
+        {
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
         }
     }
 }
@@ -97,7 +96,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     self.selectedReceipt = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self performSegueWithIdentifier:@"ShowImageSegue" sender:self];
+    [self performSegueWithIdentifier:ShowImageSegue sender:self];
 }
 
 - (void)configureCell:(ReceiptViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
@@ -121,12 +120,12 @@
     NSString *cacheName = self.ascendingSort ? @"MasterAsc" : @"MasterDesc";
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Receipt" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:ReceiptModelName inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     [fetchRequest setFetchBatchSize:20];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"purchaseDate" ascending:self.ascendingSort];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:SortPropertyName ascending:self.ascendingSort];
     NSArray *sortDescriptors = @[sortDescriptor];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
@@ -252,7 +251,7 @@
     
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Receipt" inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:ReceiptModelName inManagedObjectContext:context];
     Receipt *receipt = (Receipt *) [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
     
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
@@ -267,33 +266,32 @@
     
     self.receiptToConfirm = receipt;
 
-    [self performSegueWithIdentifier:@"ConfirmReceiptSegue" sender:self];
+    [self performSegueWithIdentifier:ConfirmReceiptSegue sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Make sure your segue name in storyboard is the same as this line
-    if ([[segue identifier] isEqualToString:@"ConfirmReceiptSegue"])
+    if ([[segue identifier] isEqualToString:ConfirmReceiptSegue])
     {
-        // Get reference to the destination view controller
         UINavigationController *navController = [segue destinationViewController];
         ConfirmReceiptTableViewController *vc =  (ConfirmReceiptTableViewController *)navController.topViewController;
-        
-        // Pass any objects to the view controller here, like...
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        
         [vc configureWithReceipt:self.receiptToConfirm mailCategory:self.category managedObjectContext:context];
     }
-    else if ([[segue identifier] isEqualToString: @"ShowImageSegue"])
+    else if ([[segue identifier] isEqualToString: ShowImageSegue])
     {
-        // Get reference to the destination view controller
         UINavigationController *navController = [segue destinationViewController];
         ImageViewController * vc = (ImageViewController *)navController.topViewController;
+        
         [vc showImageWithData:self.selectedReceipt.receiptImage];
     }
-    else if ([[segue identifier] isEqualToString:@"SearchReceiptsSegue"])
+    else if ([[segue identifier] isEqualToString:SearchReceiptsSegue])
     {
         UINavigationController *navController = [segue destinationViewController];
         SearchReceiptsTableViewController *vc = (SearchReceiptsTableViewController *)navController.topViewController;
+        
         vc.managedObjectContext = [self.fetchedResultsController managedObjectContext];
     }
 }

@@ -75,6 +75,7 @@
 		A9FEBFC81BAFA155001088A0 /* ReceiptCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceiptCell.xib; sourceTree = "<group>"; };
 		A9FEBFCB1BAFA5F3001088A0 /* SearchReceiptsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchReceiptsTableViewController.h; sourceTree = "<group>"; };
 		A9FEBFCC1BAFA5F3001088A0 /* SearchReceiptsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchReceiptsTableViewController.m; sourceTree = "<group>"; };
+		A9FEBFCE1BAFB579001088A0 /* ReceiptConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiptConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				A9F5A1B51BAE209800B70973 /* Receipts.storyboard */,
+				A9FEBFCE1BAFB579001088A0 /* ReceiptConstants.h */,
 				A9F5A1C81BAE364100B70973 /* ReceiptViewCell.h */,
 				A9F5A1C91BAE364100B70973 /* ReceiptViewCell.m */,
 				A9F5A1CE1BAE37DF00B70973 /* ReceiptsTableViewController.h */,

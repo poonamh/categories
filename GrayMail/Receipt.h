@@ -22,5 +22,4 @@
 - (void) configureWithStoreName:(NSString *)storeName amount:(NSNumber *)amount purchaseDate:(NSDate*)purchaseDate keywords:(NSString *)keywords image:(UIImage *)receiptImage;
 -(void) configureFromDictionary:(NSDictionary *)dictionary;
 
-+ (NSArray *)allReceipts;
 @end
